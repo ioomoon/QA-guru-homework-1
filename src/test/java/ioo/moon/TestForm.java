@@ -1,7 +1,6 @@
 package ioo.moon;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -13,65 +12,55 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TestForm {
 
-    // Выполняется перед всеми тестами
     @BeforeAll
     static void beforeAll() {
+
         Configuration.startMaximized = true;
     }
 
     @Test
     void fillFormTest() {
-        // Открываем URL
+
         open("https://demoqa.com/automation-practice-form");
 
-        // Заполняем текстовые поля Name, Email
-        $("#firstName").setValue("Maria");
-        $("#lastName").setValue("Lavrushina");
-        $("#userEmail").setValue("Lavrushina@ioo.moon");
+        $("#firstName").setValue("Maria");  /* First name text box */
+        $("#lastName").setValue("Lavrushina");  /* Last name text box */
+        $("#userEmail").setValue("Lavrushina@ioo.moon");  /* Email text box */
 
-        // Выбираем пол в radio button
-        $(byText("Female")).click();
+        $(byText("Female")).click();  /* Gender radio button */
 
-        // Заполняем текстовое поле Mobile
-        $("#userNumber").setValue("89999999999");
+        $("#userNumber").setValue("89999999999");  /* Mobile number text box */
 
-        // Выбираем дату рождения, поле Date of Birth типа календарь
-        // Устанавливаем месяц
-        $("#dateOfBirthInput").click();
+        $("#dateOfBirthInput").click();  /* Date of birth calendar */
         $(".react-datepicker__month-select").click();
         $(byText("November")).click();
 
-        // Устанавливаем год
         $(".react-datepicker__year-select").click();
         $(byText("1996")).click();
 
-        // Устанавливаем день (выбираем все элементы по селекторы и ищем дату)
         $$(".react-datepicker__day").find(text("23")).click();
 
-        // Водим букву и из выпадающего списка выбираем subject
-        $("#subjectsInput").setValue("b");
+        $("#subjectsInput").setValue("b");  /* Subjects select */
         $(byText("Biology")).click();
 
-        // Выбираем хобби в radio button
-        $(byText("Sports")).click();
+        $(byText("Sports")).click();  /* Hobbies check box */
+        $(byText("Reading")).click();
 
-        // Вводим адрес в текстовое поле
-        $("#currentAddress").setValue("Moscow, Russia");
+        $("#uploadPicture").uploadFile(new File("src/resources/img.png")); /* Picture download */
 
-        // Загружаем файл
-        $("#uploadPicture").uploadFile(new File("src/resources/img.png"));
+        $("#currentAddress").setValue("Moscow, Russia");  /* Current Address text box */
 
 
-
-        // Выбираем штат и город
-        $(byText("Select State")).scrollTo().click();
+        $(byText("Select State")).scrollTo().click();  /* State and City select */
         $(byText("Uttar Pradesh")).click();
         $(byText("Select City")).click();
         $(byText("Agra")).click();
 
-        // Проверяем, жмем submit
         $("#submit").click();
-        sleep(2000);
-    }
 
+        $(".table-responsive").shouldHave(text("Maria"), text("Lavrushina"), text("Lavrushina@ioo.moon"),
+                text("Female"), text("8999999999"), text("23 November,1996"), text("Biology"), text("Biology"),
+                text("Sports"), text("Reading"), text("Reading"), text("img.png"), text("Moscow, Russia"),
+                text("Uttar Pradesh Agra"));
+    }
 }
