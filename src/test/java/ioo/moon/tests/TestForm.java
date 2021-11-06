@@ -1,7 +1,6 @@
-package ioo.moon;
+package ioo.moon.tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+import ioo.moon.tests.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -10,13 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestForm {
-
-    @BeforeAll
-    static void beforeAll() {
-
-        Configuration.startMaximized = true;
-    }
+public class TestForm extends BaseTest {
 
     @Test
     void fillFormTest() {
