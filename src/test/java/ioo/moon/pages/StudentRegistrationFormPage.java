@@ -41,45 +41,67 @@ public class StudentRegistrationFormPage {
         return this;
     }
 
-    public void fillLastNameInput(String value) {
+    public StudentRegistrationFormPage fillLastNameInput(String value) {
         /* Last name text box */
         lastNameInput.setValue(value);
+
+        return this;
     }
 
-    public void fillEmailInput(String value) {
+    public StudentRegistrationFormPage fillEmailInput(String value) {
         /* Email text box */
         emailInput.setValue(value);
+
+        return this;
     }
 
-    public void fillGenderRadioButton(String value) {
+    public StudentRegistrationFormPage fillGenderRadioButton(String value) {
         /* Gender radio button */
         $(byText(value)).click();
+
+        return this;
     }
 
-    public void fillMobileNumberInput(String value) {
+    public StudentRegistrationFormPage setDate(String day, String month, String year) {
+        calendar.setDate(day, month, year);
+
+        return this;
+    }
+
+    public StudentRegistrationFormPage fillMobileNumberInput(String value) {
         /* Mobile number text box */
         numberInput.setValue(value);
+
+        return this;
     }
 
-    public void uploadFile(String value) {
+    public StudentRegistrationFormPage uploadFile(String value) {
         /* Picture download */
         uploadFile.uploadFile(new File(value));
+
+        return this;
     }
 
-    public void fillAdressInput(String value) {
+    public StudentRegistrationFormPage fillAdressInput(String value) {
         /* Current Address text box */
         adressInput.setValue(value);
+
+        return this;
     }
 
-    public void selectSubject(String firstLetter, String value) {
+    public StudentRegistrationFormPage selectSubject(String firstLetter, String value) {
         /* Subjects select */
         subjectsSelect.setValue(firstLetter);
         $(byText(value)).click();
+
+        return this;
     }
 
-    public void selectHobbies(String value) {
+    public StudentRegistrationFormPage selectHobbies(String value) {
         /* Hobbies check box */
         $(byText(value)).click();
+
+        return this;
     }
 
     public void selectStateAndCity(String state, String city) {
@@ -98,6 +120,7 @@ public class StudentRegistrationFormPage {
     }
 
     public void submitInformation() {
+
         submit.click();
     }
 

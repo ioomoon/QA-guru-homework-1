@@ -12,27 +12,17 @@ public class NewTestForm extends BaseTest {
         StudentRegistrationFormPage.openPage();
 
         StudentRegistrationFormPage.fillFirstNameInput(firstName)
-                .fillLastNameInput(lastName);
-
-        StudentRegistrationFormPage.fillEmailInput(email);
-
-        StudentRegistrationFormPage.fillGenderRadioButton(gender);
-
-        StudentRegistrationFormPage.fillMobileNumberInput(userNumber);
-
-        StudentRegistrationFormPage
-                .calendar
+                .fillLastNameInput(lastName)
+                .fillEmailInput(email)
+                .fillGenderRadioButton(gender)
+                .fillMobileNumberInput(userNumber)
                 .setDate("23", "November", "1996");
 
-        StudentRegistrationFormPage.selectSubject(firstSubjectLetter, subject);
-
-        StudentRegistrationFormPage.selectHobbies(hobby);
-
-        StudentRegistrationFormPage.uploadFile(filepath);
-
-        StudentRegistrationFormPage.fillAdressInput(address);
-
-        StudentRegistrationFormPage.selectStateAndCity(state, city);
+        StudentRegistrationFormPage.selectSubject(firstSubjectLetter, subject)
+                .selectHobbies(hobby)
+                .uploadFile(filepath)
+                .fillAdressInput(address)
+                .selectStateAndCity(state, city);
 
         StudentRegistrationFormPage.submitInformation();
 

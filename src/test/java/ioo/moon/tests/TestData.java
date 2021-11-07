@@ -7,7 +7,6 @@ import java.util.Locale;
 public class TestData {
     static Faker faker = new Faker(new Locale("ru"));
 
-//    String streetAddress = faker.address().streetAddress();
     public static String
         firstName = faker.name().firstName(),
         lastName = faker.name().lastName(),
@@ -16,13 +15,9 @@ public class TestData {
 
 
     public static String
-//            firstName = "Maria",
-//            lastName = "Lavrushina",
-//            email = "Lavrushina@ioo.moon",
             gender = "Female",
             userNumber = "8999999999",
             filepath = "src/resources/img.png",
-//            address = "Moscow, Russia",
             firstSubjectLetter = "b",
             subject = "Biology",
             hobby = "Sports",
