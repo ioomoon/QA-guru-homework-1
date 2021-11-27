@@ -1,5 +1,6 @@
 package ioo.moon.tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static ioo.moon.tests.TestData.*;
@@ -7,6 +8,7 @@ import static ioo.moon.tests.TestData.*;
 public class NewTestForm extends BaseTest {
 
     @Test
+    @DisplayName("Проверка формы на demoqa.com с pageObject")
     void fillFormTest() {
 
         StudentRegistrationFormPage.openPage();

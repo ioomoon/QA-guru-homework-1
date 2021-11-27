@@ -1,6 +1,7 @@
 package ioo.moon.tests;
 
 import ioo.moon.tests.BaseTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -12,6 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class TestForm extends BaseTest {
 
     @Test
+    @DisplayName("Проверка формы на demoqa.com")
     void fillFormTest() {
 
         open("https://demoqa.com/automation-practice-form");
