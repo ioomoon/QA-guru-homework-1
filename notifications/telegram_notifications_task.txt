@@ -1,0 +1,7 @@
+//// Local
+
+java "-DprojectName=QA_guru_homework" "-Denv=ENVIRONMENT" "-DreportLink=BUILD_URL" "-Dcomm=QA_guru_homework_with_telegram_notifications" "-Dconfig.file=notifications/telegran.json" -jar allure-notifications-3.1.2.jar
+
+//// Remote
+
+java "-DprojectName=QA_guru_homework" "-Denv=ENVIRONMENT" "-DreportLink=BUILD_URL" "-Dcomm=QA_guru_homework_with_telegram_notifications" "-Dconfig.file=notifications/telegran.json" -jar allure-notifications-3.1.2.jar
